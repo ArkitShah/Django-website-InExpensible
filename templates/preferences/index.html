@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+<div class="row">
+<div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">Settings</li>
+                <li class="breadcrumb-item active" aria-current="page">General Settings</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+{% include 'partials/_messages.html' %}
+<form action="{% url 'preferences' %}" method="post">
+{% csrf_token %}
+    <h5>Preferred Currency</h5>
+        <div class="input-group">
+            <select name="currency" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                {% if user_preferences.currency %}
+                    <option selected name="currency" value="{{user_preferences.currency}}" selected>{{user_preferences.currency}}</option>
+                {% endif %}
+                {% for currency in currencies %}
+                    <option name="currency" value="{{currency.name}} - {{currency.value}}">
+                        {{currency.name}} - {{currency.value}}
+                    </option>
+                {% endfor %}
+            </select>
+            <div class="input-group-append">
+                <input class="btn btn-block btn-primary ml-1" type="submit" value="Save"/>
+            </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

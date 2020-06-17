@@ -1,0 +1,32 @@
+#header {
+    background: #4c4c4c;
+    color: #000000;
+}
+
+#branding h1{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+div.breadcrumbs{
+    background: #333333;
+    color: #ffffff;
+}
+
+.login .submit-row {
+    padding: 0;
+}
+
+input[type=submit], input[type=button], .submit-row input {
+    width: 100%;
+    background: #4c4c4c;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #4c4c4c;
+}
+
+a:link, a:visited {
+    color: black;
+}
